@@ -3,7 +3,7 @@ from sprite import Sprite
 
 
 def main():
-    sprites = [Sprite(name='black', x=50*i, y=50*i, size=50) for i in range(3)]
+    sprites = [Sprite(name='black', x=50*i, y=100*i, size=50) for i in range(3)]
 
     prog = Programme(sprites=sprites)
 

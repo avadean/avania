@@ -3,7 +3,7 @@ import pygame as p
 
 from os import listdir
 
-from sprite import Pod
+from sprite import Player
 
 
 def updateDisplay():
@@ -43,7 +43,7 @@ class Programme:
 
         self.images = getImages()
 
-        self.pod = Pod(self.images.get('pod'))
+        self.player = Player(self.images.get('knight'))
 
         self.sprites = sprites
 
@@ -60,18 +60,18 @@ class Programme:
         # TODO: GRAVITY
         if np.any(moveArr):
             for sprite in self.sprites:
-                sprite.rect.move_ip(*moveArr * self.pod.speed)
+                sprite.rect.move_ip(*moveArr * self.player.speed)
                 sprite.rect.clamp_ip(self.screen.get_rect())
 
     def drawGame(self):
         self.screen.fill(Colors.fill)
 
-        self.drawPod()
+        self.drawPlayer()
         self.drawSprites()
 
-    def drawPod(self):
-        self.screen.blit(self.pod.image,
-                         p.Rect(self.pod.x, self.pod.y, self.pod.size, self.pod.size))
+    def drawPlayer(self):
+        self.screen.blit(self.player.image,
+                         p.Rect(self.player.x, self.player.y, self.player.size, self.player.size))
 
     def drawSprites(self):
         for sprite in self.sprites:

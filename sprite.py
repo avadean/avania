@@ -14,9 +14,9 @@ class Sprite:
         self.rect = self.image.get_rect(center=(self.x, self.y))
 
 
-class Pod(Sprite):
+class Player(Sprite):
     def __init__(self, image):
-        super().__init__(name='pod', x=100, y=250, size=75)
+        super().__init__(name='player', x=100, y=250, size=75)
 
         self.image = image
         self.speed = 10.0
